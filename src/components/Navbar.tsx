@@ -19,7 +19,7 @@ export default function Navbar() {
         <Link href="/dashboard/history" className="text-sm text-gray-400 hover:text-white transition">History</Link>
         <div className="flex items-center gap-3">
           <span className="text-sm text-gray-500">{user?.username}</span>
-          <button onClick={logout} className="text-sm text-gray-400 hover:text-red-400 transition">
+          <button onClick={logout} className="text-sm cursor-pointer text-gray-400 hover:text-red-400 transition">
             Sign out
           </button>
         </div>

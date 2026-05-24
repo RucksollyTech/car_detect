@@ -39,7 +39,7 @@ export default function DashboardPage() {
         <main className="max-w-2xl mx-auto px-4 py-10 space-y-6">
           <div>
             <h1 className="text-2xl font-bold text-white">Detect a Car</h1>
-            <p className="text-gray-400 text-sm mt-1">Upload any car photo — ResNet50 identifies the model across 196 classes</p>
+            <p className="text-gray-400 text-sm mt-1">Upload any car(from 1990 to 2012 models) photo — ResNet50 identifies the model across 196 classes</p>
           </div>
           <UploadZone onFile={handleFile} loading={loading} />
           {loading && (
