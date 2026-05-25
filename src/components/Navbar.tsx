@@ -11,6 +11,7 @@ export default function Navbar() {
           <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 17H3a2 2 0 01-2-2v-4a2 2 0 012-2h1l2-4h12l2 4h1a2 2 0 012 2v4a2 2 0 01-2 2h-2M7.5 17.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM16.5 17.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" />
           </svg>
+          {/* <img src="/logo.png" alt="" /> */}
         </div>
         <span className="font-semibold text-white">CarDetect AI</span>
       </Link>
