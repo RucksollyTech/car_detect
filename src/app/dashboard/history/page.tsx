@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import AuthGuard from '@/components/AuthGuard'
 import Navbar from '@/components/Navbar'
 import api from '@/lib/api'
+import MobileBar from '@/components/mobileBar'
 
 interface HistoryItem {
   id: number
@@ -26,7 +27,8 @@ export default function HistoryPage() {
     <AuthGuard>
       <div className="min-h-screen bg-gray-950">
         <Navbar />
-        <main className="max-w-4xl mx-auto px-4 py-10">
+        <MobileBar />
+        <main className="max-w-4xl mx-auto px-4 pt-6 pb-10 md:pt-10 md:pb-10">
           <h1 className="text-2xl font-bold text-white mb-6">Detection History</h1>
           {loading ? (
             <div className="flex justify-center py-20">

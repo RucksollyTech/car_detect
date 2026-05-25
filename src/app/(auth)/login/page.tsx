@@ -6,6 +6,7 @@ import toast from 'react-hot-toast'
 import api from '@/lib/api'
 import { setTokens } from '@/lib/auth'
 import { useAuth } from '@/context/AuthContext'
+import { EyeClosedIcon, EyeIcon } from '@/components/passView'
 
 export default function LoginPage() {
   const [form, setForm] = useState({ username: '', password: '' })
@@ -31,6 +32,7 @@ export default function LoginPage() {
   const handleGoogle = () => {
     window.location.href = `${process.env.NEXT_PUBLIC_API_URL}/accounts/google/login/`
   }
+  const [showPassword, setShowPassword] = useState(false)
 
   return (
     <div className="min-h-screen bg-gray-950 flex items-center justify-center p-4">
@@ -72,27 +74,37 @@ export default function LoginPage() {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <label className="block text-sm text-gray-400 mb-1.5">Username</label>
-              <input
+            <label className="block text-sm text-gray-400 mb-1.5">Username</label>
+            <input
                 type="text"
                 required
                 value={form.username}
                 onChange={e => setForm({ ...form, username: e.target.value })}
                 className="w-full bg-gray-800 text-white border border-gray-700 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-blue-500 transition"
                 placeholder="Your username"
-              />
-            </div>
+            />
             <div>
-              <label className="block text-sm text-gray-400 mb-1.5">Password</label>
-              <input
-                type="password"
-                required
-                value={form.password}
-                onChange={e => setForm({ ...form, password: e.target.value })}
-                className="w-full bg-gray-800 text-white border border-gray-700 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-blue-500 transition"
-                placeholder="••••••••"
-              />
+                <label className="block text-sm text-gray-400 mb-1.5">Password</label>
+                <div className="relative w-full">
+                    <input
+                        type={showPassword ? "text" : "password"}
+                        required
+                        value={form.password}
+                        onChange={(e) =>
+                        setForm({ ...form, password: e.target.value })
+                        }
+                        className="w-full bg-gray-800 text-white border border-gray-700 rounded-lg px-4 py-2.5 pr-12 text-sm focus:outline-none focus:border-blue-500 transition"
+                        placeholder="Enter your password"
+                    />
+
+                    <button
+                        type="button"
+                        onClick={() => setShowPassword((prev) => !prev)}
+                        className="absolute cursor-pointer right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition"
+                    >
+                        {showPassword ? <EyeClosedIcon /> : <EyeIcon />}
+                    </button>
+                </div>
             </div>
             <button
               type="submit"

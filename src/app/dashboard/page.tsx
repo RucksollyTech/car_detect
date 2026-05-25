@@ -6,6 +6,7 @@ import Navbar from '@/components/Navbar'
 import UploadZone from '@/components/UploadZone'
 import ResultCard from '@/components/ResultCard'
 import api from '@/lib/api'
+import MobileBar from '@/components/mobileBar'
 
 interface Prediction { class: string; confidence: number }
 
@@ -36,7 +37,8 @@ export default function DashboardPage() {
     <AuthGuard>
       <div className="min-h-screen bg-gray-950">
         <Navbar />
-        <main className="max-w-2xl mx-auto px-4 py-10 space-y-6">
+        <MobileBar />
+        <main className="max-w-2xl mx-auto px-4 pt-6 pb-10 md:pt-10 md:pb-10 space-y-6">
           <div>
             <h1 className="text-2xl font-bold text-white">Detect a Car</h1>
             <p className="text-gray-400 text-sm mt-1">Upload any car(from 1990 to 2012 models) photo — ResNet50 identifies the model across 196 classes</p>
